@@ -30,7 +30,7 @@ public class Entry {
 	
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Entry> load() {
-		File file = new File(FileUtils.getJarPath(), "fileAutoRemote.config");
+		File file = new File(FileUtils.getJarPath(), "fileAutoDeploy.config");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();

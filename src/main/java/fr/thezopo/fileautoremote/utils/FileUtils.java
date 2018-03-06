@@ -6,13 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import fr.thezopo.fileautoremote.FileAutoRemote;
+import fr.thezopo.fileautoremote.FileAutoDeploy;
 
 public class FileUtils {
 	public static String getJarPath() {
 		String url = null;
 		try {
-			url = FileAutoRemote.class.getProtectionDomain().getCodeSource().getLocation().toURI().resolve(".").getPath();
+			url = FileAutoDeploy.class.getProtectionDomain().getCodeSource().getLocation().toURI().resolve(".").getPath();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}

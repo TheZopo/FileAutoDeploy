@@ -5,12 +5,14 @@ public class Resource {
 	private String localPath;
 	private String remotePath;
 	private boolean active;
+	private int index;
 	
-	public Resource(String name, String localPath, String remotePath) {
+	public Resource(String name, String localPath, String remotePath, int index) {
 		this.name = name;
 		this.localPath = localPath;
 		this.remotePath = remotePath;
 		this.active = true;
+		this.index = index;
 	}
 
 	public Resource() {
@@ -53,6 +55,18 @@ public class Resource {
 		active = false;
 	}
 	
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	public String toString() {
 		return name + " - " + localPath + " - " + remotePath;
 	}

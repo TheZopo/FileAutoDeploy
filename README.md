@@ -3,7 +3,7 @@ FileAutoDeploy
 Application deploying files on a remote server and executing commands
 
 ## Use
-Launch the application
+Launch the application with `java -jar FileAutoDeploy.jar`
 Type `exit` in the console for exit
 
 ## Configuration

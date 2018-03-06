@@ -13,7 +13,6 @@ public class Remote {
 	private int port;
 	private String keyPath;
 	private String passPhrase;
-	private Session session;
 	
 	public Remote(String name, String username, String host, int port, String keyPath, String passPhrase) {
 		this.name = name;
@@ -24,9 +23,13 @@ public class Remote {
 		this.passPhrase = passPhrase;
 	}
 	
-	public void initialize() {
+	public Remote() {
+
+	}
+	
+	public Session getSession() {
 	    JSch jsch = new JSch();
-	    session = null;
+	    Session session = null;
 	    try {
 	        jsch.addIdentity(keyPath, passPhrase);
 	        session = jsch.getSession(username, host, port);
@@ -37,10 +40,8 @@ public class Remote {
 	    } catch (JSchException e) {
 	        throw new RuntimeException("Failed to create Jsch Session object.", e);
 	    }
-	}
-	
-	public Remote() {
-
+	    
+	    return session;
 	}
 
 	public String getName() {
@@ -89,14 +90,6 @@ public class Remote {
 
 	public void setPassPhrase(String passPhrase) {
 		this.passPhrase = passPhrase;
-	}
-
-	public Session getSession() {
-		return session;
-	}
-
-	public void setSession(Session session) {
-		this.session = session;
 	}
 
 	public String toString() {
